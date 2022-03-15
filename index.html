@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact me</title>
+  </head>
+  <body> 
+    <section>
+      <div class="contactForm" id="contactForm">
+        <div class="formHeader" id="formHeader">
+          <h1 id="message">Contact Me</h1>
+        </div>
+        <div class="formBody" id="formBody">
+          <form action="https://formspree.io/xrgjlbne" method="post" id="my-form" enctype="multipart/form-data">
+            <div class="inputContainer">
+              <label for="Name"><i class="fa fa-lg fa-fw fa-user"></i></label>
+              <input type="text" name="Name" id="userName" placeholder="John Smith">
+            </div>
+            <div class="inputContainer">
+              <label for="phoneNumber"><i class="fa fa-lg fa-fw fa-phone"></i></label>
+              <input type="number" name="Phone Number" id="phoneNumber" placeholder="623232323">
+            </div>
+            <div class="inputContainer">
+              <label for="email"> <i class="fa fa-lg fa-fw fa-envelope"></i></label>
+              <input type="email" name="Email" id="userEmail" placeholder="jsmith@domain.com">
+            </div>
+            <div class="inputContainer"> 
+              <textarea name="feedback" cols="30" rows="10" id="userMessage" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit" id="submitBtn">Send</button>
+          </form>
+        </div>
+        <div id="status"></div>
+      </div>
+    </section>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

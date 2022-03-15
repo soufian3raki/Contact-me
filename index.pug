@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="./css/style.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        title Contact me
+    body 
+        section
+            #contactForm.contactForm
+                #formHeader.formHeader
+                    h1#message Contact Me
+                #formBody.formBody
+                    form(action="https://formspree.io/xrgjlbne", method="post", id="my-form", enctype="multipart/form-data")
+                        .inputContainer
+                            label(for="Name") <i class="fa fa-lg fa-fw fa-user"></i>
+                            input(type="text", name="Name", id="userName", placeholder="John Smith")
+                        .inputContainer
+                            label(for="phoneNumber") <i class="fa fa-lg fa-fw fa-phone"></i>
+                            input(type="number", name="Phone Number", id="phoneNumber", placeholder="623232323")
+                        .inputContainer
+                            label(for="email")  <i class="fa fa-lg fa-fw fa-envelope"></i>
+                            input(type="email", name="Email", id="userEmail", placeholder="jsmith@domain.com")
+                        .inputContainer 
+                            textarea(name="feedback", cols="30", rows="10", id="userMessage", placeholder="Enter your message")
+                        button(type="submit", id="submitBtn") Send
+                #status
+        script(src="./js/main.js")

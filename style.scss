@@ -1,0 +1,302 @@
+/*
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat";
+}
+section {
+    height: 100vh;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 0px 20px #00000010;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.form-group {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    input, textarea {
+        width: 100%;
+        padding: 5px;
+        font-size: 18px;
+        border: 1px solid rgba(128, 128, 128, 0.199);
+        margin-top: 5px;
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: "Montserrat";
+    color: rgb(27, 166, 247);
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease background-color;
+    &:hover {
+        background-color: rgb(214, 226, 236);
+    }
+}
+#status {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 8px;
+    &.success {
+        background-color: rgb(211, 250, 153);
+        animation: status 4s ease forwards;
+    }
+    &.error {
+        background-color: rgb(250, 129, 92);
+        color: white;
+        animation: status 4s ease forwards;
+    }
+}
+@keyframes status {
+    0% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    90% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+*/
+
+//!---------------------------------------------
+
+$white: #fff;
+$purple: #3f14ca;
+$success: #0A8754;
+$lightSuccess: #82E682;
+$error: #FF5C5C;
+$grey: #ccc;
+$opacBlack: rgba(0, 0, 0, 0.3);
+
+@mixin transition($dur, $prop: all, $style: ease) {
+	transition: $prop $dur $style;
+}
+body {
+	background: #f1f1f1;
+	margin-top: 2rem;
+}
+.contactForm {
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin: auto;
+	max-width: 450px;
+	overflow: hidden;
+
+	.formHeader {
+		background: $purple;
+		border-bottom: 4px solid $purple;
+		color: $white;
+		text-align: center;
+		overflow: hidden;
+
+		/*TRANSITION*/
+		@include transition(0.5s);
+
+		h1 {
+			line-height: 1em;
+		}
+	}
+
+	.formBody {
+		background: $white;
+		// height: 371px;
+		padding: 20px 12px;
+		overflow: hidden;
+
+		/*TRANSITION*/
+		@include transition(0.2s);
+	}
+
+	.inputContainer {
+		border: 1px solid $grey;
+		border-radius: 3px;
+		position: relative;
+		margin-bottom: 5px;
+		overflow: hidden;
+		background: transparent;
+
+		.message {
+			color: $error;
+			background: $error;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 0;
+			margin: 0;
+			line-height: 2.5em;
+			text-align: center;
+			overflow: hidden;
+
+			/*TRANSITION*/
+			@include transition(0.1s);
+		}
+
+		label,
+		input,
+		textarea {
+			box-sizing: border-box;
+			padding: 10px;
+			font-size: 14px;
+			line-height: 1em;
+			border: none;
+			font: inherit;
+		}
+
+		label {
+			display: inline-block;
+			font-size: .7em;
+			background: $grey;
+			color: $opacBlack;
+			line-height: 1.75em;
+			border-right: 1px solid $grey;
+
+			/*POSITION*/
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+		}
+
+		textarea,
+		input {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		textarea {
+			margin-bottom: -5px;
+		}
+
+		input {
+			padding-left: 50px;
+		}
+	}
+
+    button[type="submit"] {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 20px;
+        font-size: 24px;
+        border-radius: 8px;
+        font-family: "Montserrat";
+        color: $white;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s ease background-color;
+        &:hover {
+            background-color: $purple;
+        }
+    }
+
+	/*SUCESS STYLES*/
+	&.success {
+		overflow: hidden;
+
+		.formHeader {
+			background: $success;
+			border-color: $success;
+			font-size: .75em;
+		}
+
+		.formBody {
+			height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+
+			form {
+				/*TRANSITION*/
+				@include transition(0.5s, opacity);
+
+				opacity: 0;
+			}
+		}
+	}
+
+	.inputContainer.success {
+		border-color: $lightSuccess;
+
+		&:after {
+			font: 1.25em/2em FontAwesome;
+			color: $lightSuccess;
+			position: absolute;
+			top: 0;
+			right: 10px;
+			content: "\f00c";
+		}
+
+		label {
+			background: $lightSuccess;
+			border-color: $lightSuccess;
+		}
+
+		input,
+		textarea {
+			color: $success;
+		}
+	}
+
+	.inputContainer.error {
+		border-color: $error;
+
+		.message {
+			width: 100%;
+		}
+
+		&:after {
+			font: 1.25em/2em FontAwesome;
+			color: $error;
+			position: absolute;
+			top: 0;
+			right: 10px;
+			content: "\f00d";
+		}
+		label {
+			background: $error;
+			border-color: $error;
+		}
+
+		input,
+		textarea {
+			color: $error;
+		}
+	}
+}
+
+
