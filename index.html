@@ -10,30 +10,25 @@
   </head>
   <body> 
     <section>
-      <div class="contactForm" id="contactForm">
-        <div class="formHeader" id="formHeader">
-          <h1 id="message">Contact Me</h1>
-        </div>
-        <div class="formBody" id="formBody">
-          <form action="https://formspree.io/xrgjlbne" method="post" id="my-form" enctype="multipart/form-data">
-            <div class="inputContainer">
-              <label for="Name"><i class="fa fa-lg fa-fw fa-user"></i></label>
-              <input type="text" name="Name" id="userName" placeholder="John Smith">
-            </div>
-            <div class="inputContainer">
-              <label for="phoneNumber"><i class="fa fa-lg fa-fw fa-phone"></i></label>
-              <input type="number" name="Phone Number" id="phoneNumber" placeholder="623232323">
-            </div>
-            <div class="inputContainer">
-              <label for="email"> <i class="fa fa-lg fa-fw fa-envelope"></i></label>
-              <input type="email" name="Email" id="userEmail" placeholder="jsmith@domain.com">
-            </div>
-            <div class="inputContainer"> 
-              <textarea name="feedback" cols="30" rows="10" id="userMessage" placeholder="Enter your message"></textarea>
-            </div>
-            <button type="submit" id="submitBtn">Send</button>
-          </form>
-        </div>
+      <div class="container">
+        <form action="https://formspree.io/xrgjlbne" method="post" id="my-form" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="Name"><i class="fa fa-lg fa-fw fa-user"></i></label>
+            <input type="text" name="Name" id="name" placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber"><i class="fa fa-lg fa-fw fa-phone"></i></label>
+            <input type="number" name="Phone Number" id="phoneNumber" placeholder="623232323">
+          </div>
+          <div class="form-group">
+            <label for="email"> <i class="fa fa-lg fa-fw fa-envelope"></i></label>
+            <input type="email" name="Email" id="userEmail" placeholder="jsmith@domain.com">
+          </div>
+          <div class="form-group"> 
+            <textarea name="feedback" cols="30" rows="10" id="userMessage" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" id="submitBtn">Send</button>
+        </form>
         <div id="status"></div>
       </div>
     </section>
